@@ -1,21 +1,49 @@
-# Tensorflow-Discord-Chatbot
-
-This is a chatbot that you can message interactively with using the Discord platform. The bot is trained on specific words and phrases, and can make educated decisions of how to respond depending on what you say to it. The machine-learning/neural-network aspect of how the bot works means that you don't have to give it very specific inputs to get a response that makes sense. 
+# AlienBot Discord Chatbot
+A Discord bot powered by Google's Gemini AI that resopnds with personality based on custom intents.
 
 ## Technologies
+* **Google Gemini AI** - Free tier LLM for natural conversation
+* **Discord.py** Discord bot framework
+* **Python-dotenv** - Environment variable management
 
-* Tensorflow : an open-source machine-learning library for neural networks
-* Discord API : used to connect the bot with the discord platform and be interactive on it
-* NLTK : Natural Language Toolkit for Python, a language processing library for English
+## Setup
+1. Clone and create virtual environment
 
-## How to Run
+```
+python3 -m venv venv
+source venv/bin/activate # Mac/Linux
+# OR
+venv\Scripts\activate # Windows
+```
 
-1. Fill out intents.json with possible inputs and responses
-2. Run the training.py file to train the bot based on the text
-3. Build a bot based on chatbot.py or use AlienBot.py the example
-4. Run AlienBot.py (will need your personal Discord API keys)
+2. Install dependencies:
 
-## Future Improvements - Coming Soon
+`pip install -r requirements.txt`
 
-* more responses for when the bot thinks it might have an error
-* ability to save & "learn" someone's name 
+3. Get API Keys
+
+Put Discord Bot Token and Gemini API Key into new .env file, like so:
+
+``` 
+DISCORD_BOT_TOKEN=your_discord_token
+GEMINI_API_KEY=your_gemini_key_here
+```
+
+4. Run the bot:
+
+`python Alienbot.py`
+
+## Usage
+The bot responds in channels named `alienbot-channel` or `admin`.
+
+Commands:
+* `.hello` - Test command
+* `.clear` - Clear conversation history
+
+The bot's personality is defined in `intents.json` and uses Gemini to generate natural responses in character
+
+## Notes
+
+- Require Python 3.10+
+- Uses Gemini's free tier (1500 requests/day)
+- Maintains conversation context per channel
